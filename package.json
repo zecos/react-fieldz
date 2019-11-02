@@ -16,9 +16,9 @@
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.4"
   },
-  "name": "react-fieldz",
+  "name": "@zecos/react-fieldz",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "main": "dist/lib.js",
   "dependencies": {
     "fieldz": "^0.1.0",
@@ -29,15 +29,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zwhitchcox/react-fieldz.git"
+    "url": "git+https://github.com/zecos/react-fields.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zwhitchcox/react-fieldz/issues"
+    "url": "https://github.com/zecos/react-fields/issues"
   },
-  "homepage": "https://github.com/zwhitchcox/react-fieldz#readme",
+  "homepage": "https://github.com/zecos/react-fields#readme",
   "peerDependencies": {
     "react": "^16.8.x"
   }
