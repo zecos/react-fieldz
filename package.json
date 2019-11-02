@@ -17,7 +17,7 @@
     "typescript": "^3.6.4"
   },
   "name": "@zecos/react-fieldz",
-  "description": "",
+  "description": "fieldz wrapper for react",
   "version": "0.0.1",
   "main": "dist/lib.js",
   "dependencies": {
