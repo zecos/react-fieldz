@@ -24,6 +24,7 @@
     "fieldz": "^0.1.0",
     "validatorz": "^2.3.3"
   },
+  "type": "./src/lib.d.ts",
   "scripts": {
     "test": "jest"
   },
@@ -39,6 +40,6 @@
   },
   "homepage": "https://github.com/zecos/react-fields#readme",
   "peerDependencies": {
-    "react": "^16.8.x"
+    "react": "^16.x.x"
   }
 }

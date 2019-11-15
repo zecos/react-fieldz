@@ -9,6 +9,10 @@ Please see [`fieldz`](https://npmjs.org/fieldz) for more detail on the api.
 ### Example Usage
 
 ```ts
+import React from 'react'
+import { useFieldz } from '@zecos/react-fieldz'
+import { nameValidator } from '@zecos/validatorz'
+
 const fieldProperties = {
   firstName: {
     init: "",
@@ -31,28 +35,25 @@ const camelToTitle = camelCase => camelCase
     .replace(/^./g, match => match.toUpperCase())
     .trim()
 
-const Form = () => {
-  const [{actions, fieldsState}, setFieldsState] = useFieldz(fieldProperties)
+const App = () => {
+  const [state, actions] = useFieldz(fieldProperties)
   const {setValue, setValues, setTouched, resetField, resetFields } = actions
 
   return (
     <form>
-      {Object.entries(fieldsState)
+      {Object.entries(state).map(([fieldName, {errors}]) => <div key={fieldName}>Error: {JSON.stringify(errors.map(err => err.toString()))}</div>)}
+      {Object.entries(state)
         .map(([fieldName, {errors, value, touched, pristine}]) => (
           <div key={fieldName}>
-            {(touched && errors.length) ?
-              <span className="input-error">
-                {errors.map(err => <div>{err.toString()}</div>)}
-              </span> : ""
-            }
+            {(touched && errors.length) ? <span className="input-error">{errors.map(err => <div>{err.toString()}</div>)}</span> : ""}
             <label htmlFor={fieldName}>{camelToTitle(fieldName)}</label>
             <input
               name={fieldName}
               id={fieldName}
               value={value}
               aria-label={fieldName}
-              onChange={e => setFieldsState(setValue(fieldName, e.target.value))}
-              onBlur={_ => setFieldsState(setTouched(fieldName))}
+              onChange={e => setValue(fieldName, e.target.value)}
+              onBlur={_ => setTouched(fieldName)}
             />
           </div>
         ))
@@ -60,4 +61,6 @@ const Form = () => {
     </form>
   )
 }
+
+export default App
 ```

@@ -1,8 +1,7 @@
 module.exports = {
-  "roots": [
-    "<rootDir>"
-  ],
-  "transform": {
-    "^.+\\.tsx?$": "ts-jest"
-  },
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "testMatch": [
+    "**/*.test.tsx"
+  ]
 }
