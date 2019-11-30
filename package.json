@@ -18,7 +18,7 @@
   },
   "name": "@zecos/react-fieldz",
   "description": "fieldz wrapper for react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/lib.js",
   "dependencies": {
     "@zecos/fieldz": "^0.0.7",
