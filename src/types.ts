@@ -5,3 +5,10 @@ export interface ReactFieldzActions {
   resetFields: () => any
   setTouched: (key: string) => any
 }
+
+export interface ReactFieldzSingleActions {
+  setValue: (newVal) => any
+  reset: () => any
+  setTouched: () => any
+  refreshErrors: () => any
+}
