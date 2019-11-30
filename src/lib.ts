@@ -1,6 +1,6 @@
 import { field, fields, IFieldzSingleState } from '@zecos/fieldz'
 import { IFieldzInputObject, IFieldzState, FieldzInput } from "@zecos/fieldz/types"
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export interface ReactFieldzActions {
   setValue: (key: string, newVal) => any
@@ -44,7 +44,8 @@ export const useFields = (fieldProperties: FieldzInput): [IFieldzState, ReactFie
   return [actions.getState(), reactActions]
 }
 
-export const useField = (fieldProperties: FieldzInput): [IFieldzSingleState, ReactFieldzSingleActions]  => {
+export const useField = (fieldProperties: IFieldzInputObject): [IFieldzSingleState, ReactFieldzSingleActions]  => {
+  (window as any).thisInstance =  React
   const [actions, setFieldState] = useState(() => field(fieldProperties))
   const {
     setValue,
