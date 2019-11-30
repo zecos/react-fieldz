@@ -45,8 +45,10 @@ export const useFields = (fieldProperties: FieldzInput): [IFieldzState, ReactFie
 }
 
 export const useField = (fieldProperties: IFieldzInputObject): [IFieldzSingleState, ReactFieldzSingleActions]  => {
-  (window as any).thisInstance =  React
-  const [actions, setFieldState] = useState(() => field(fieldProperties))
+  const [[state, actions], setFieldState] = useState(() => {
+    const actions = field(fieldProperties)
+    return [actions.getState(), actions]
+  })
   const {
     setValue,
     reset,
@@ -57,7 +59,7 @@ export const useField = (fieldProperties: IFieldzInputObject): [IFieldzSingleSta
   
   const reactify = fn => (...args) => {
     fn(...args)
-    setFieldState(actions)
+    setFieldState([actions.getState(), actions])
   }
   const reactActions = {
     setValue: reactify(setValue),
@@ -67,5 +69,5 @@ export const useField = (fieldProperties: IFieldzInputObject): [IFieldzSingleSta
     refreshErrors: reactify(refreshErrors),
   }
 
-  return [getState(), reactActions]
+  return [state, reactActions]
 }
