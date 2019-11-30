@@ -21,7 +21,7 @@
   "version": "0.1.1",
   "main": "dist/lib.js",
   "dependencies": {
-    "@zecos/fieldz": "^0.0.7",
+    "@zecos/fieldz": "^0.0.8",
     "validatorz": "^2.3.3"
   },
   "type": "./src/lib.d.ts",
