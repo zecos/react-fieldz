@@ -15,6 +15,7 @@ export interface ReactFieldzSingleActions {
   reset: () => any
   setTouched: () => any
   refreshErrors: () => any
+  getState: () => any
 }
 
 export const useFields = (fieldProperties: FieldzInput): [IFieldzState, ReactFieldzActions]  => {
@@ -57,15 +58,12 @@ export const useField = (fieldProperties: IFieldzInputObject): [IFieldzSingleSta
     refreshErrors,
   } = actions
   
-  const reactify = fn => (...args) => {
-    fn(...args)
-    setFieldState([actions.getState(), actions])
-  }
+  const reactify = fn => (...args) => setFieldState([fn(...args), actions])
   const reactActions = {
     setValue: reactify(setValue),
     reset: reactify(reset),
     setTouched: reactify(setTouched),
-    getState: getState,
+    getState,
     refreshErrors: reactify(refreshErrors),
   }
 
