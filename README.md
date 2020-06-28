@@ -1,3 +1,5 @@
+# Deprecation Notice: Use https://github.com/zecos/zecos
+
 ### `react-fieldz`
 
 `react-fieldz` is a library built off of [`fieldz`](https://npmjs.org/fieldz).
